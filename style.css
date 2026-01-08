@@ -58,6 +58,6 @@ main{
   height: 100%;
   width: 100%;
 }
-#app main #textdiv textarea{
+textarea{
   resize: none;
 }
