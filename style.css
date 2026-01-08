@@ -69,5 +69,5 @@ textarea{
   resize: none;
   height: 98%;
   width: calc(96vw - 1.33px);
-  margin: 1% 0 0 2%
+  margin: 5px 0 0 2%;
 }
