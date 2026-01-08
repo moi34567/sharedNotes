@@ -12,7 +12,8 @@ body {
   height: 100%;
 }
 #app {
-  width: 100vfh;
+  width: 100vw;
+  height: 100%;
 }
 #upbar {
   background-color: darkgray;
