@@ -1,7 +1,7 @@
 *{
   margin: 0;
   padding: 0;
-  /*box-sizing: border-box;*/
+  box-sizing: border-box;
 }
 html{
   height: 100%;
@@ -9,7 +9,7 @@ html{
 body {
   background-color: black;
   font-family: Arial, Helvetica, sans-serif;
-  height: calc(100vh - 75px);
+  height: calc(100vh - 80px);
 }
 #app {
   width: 100vw;
@@ -55,10 +55,12 @@ main{
   margin-top: 75px;
   height: 100%;
 }
-#textDiv, textarea{
+#textDiv{
   height: 100%;
-  width: 100%;
 }
 textarea{
   resize: none;
+  height: 98%;
+  width: calc(96vw - 1.33px);
+  margin: 1% 0 0 2%
 }
