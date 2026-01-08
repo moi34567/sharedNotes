@@ -9,7 +9,7 @@ html{
 body {
   background-color: black;
   font-family: Arial, Helvetica, sans-serif;
-  height: 100%;
+  height: calc(100vh - 75px);
 }
 #app {
   width: 100vw;
