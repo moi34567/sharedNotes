@@ -81,3 +81,61 @@ textarea{
   width: calc(96vw - 1.33px);
   margin: 5px 0 0 2%;
 }
+
+@media(max-width: 570px){
+  #title{
+    width: 110px
+  }
+}
+@media(max-width: 480px){
+  #synchroTxt{
+    display: none;
+  }
+  #synchroImg img{
+    margin: 10px 0 0 0;
+  }
+}
+@media(max-width: 420px){
+  #save button{
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  #edit img{
+    height: 40px;
+    width: 40px;
+    margin-top: 20px;
+    margin-left: 10px;
+  }
+  #synchro{
+    margin: 0;
+  }
+  #synchroImg img{
+    height: 40px;
+    width: 40px;
+    margin: 18px 0 0 10px;
+
+  }
+}
+@media (max-width: 360px){
+  #title{
+    width: 70px;
+    font-size: 12px
+  }
+}
+@media(max-width: 320px){
+  refreshImg{
+    height: 40px;
+    width: 40px;
+  }
+}
+
+/*
+@media(max-width: 20px){
+  #upbar{
+    height: 100px;
+  }
+}
+
+*/
