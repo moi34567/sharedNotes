@@ -125,17 +125,22 @@ textarea{
   }
 }
 @media(max-width: 320px){
-  refreshImg{
-    height: 40px;
-    width: 40px;
+  #actualiser #refreshImg{
+    margin-top: 20px;
+    height: 30px;
+    width: 30px;
   }
 }
-
-/*
-@media(max-width: 20px){
-  #upbar{
+@media(max-width: 305px){
+   #upbar{
     height: 100px;
+    display: block;
+  }
+  #title{
+    width: 150px;
+    margin: 0 auto
+  }
+  #butons{
+    display: flex;
   }
 }
-
-*/
