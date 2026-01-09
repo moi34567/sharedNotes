@@ -23,6 +23,9 @@ body {
   height: 75px;
   width: 100%;
 }
+#butons{
+  display: flex;
+}
 #title {
   margin: auto 20px;
 }
@@ -138,9 +141,28 @@ textarea{
   }
   #title{
     width: 150px;
-    margin: 0 auto
+    margin: 10px auto 0;
   }
   #butons{
     display: flex;
+  }
+  #save #saveButton{
+    margin: 10px 0 0 15px;
+  }
+  #edit img{
+    margin: 10px 0 0 15px;
+  }
+  #synchroImg img{
+    margin: 10px 0 0 15px;
+  }
+  #actualiser #refreshImg{
+    margin-top: 10px;
+    height: 30px;
+    width: 30px;
+  }
+}
+@media(max-width: 239px){
+  *{
+    display: none;
   }
 }
