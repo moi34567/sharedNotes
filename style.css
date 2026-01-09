@@ -72,7 +72,7 @@ body {
   right: 10px
 }
 main{
-  margin-top: 100px;
+  margin-top: 75px;
   height: 100%;
 }
 #textDiv{
@@ -159,6 +159,9 @@ textarea{
     margin-top: 10px;
     height: 30px;
     width: 30px;
+  }
+  main{
+    margin-top: 100px;
   }
 }
 @media(max-width: 239px){
