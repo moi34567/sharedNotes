@@ -80,9 +80,9 @@ main{
 }
 textarea{
   resize: none;
-  height: 98%;
+  height: 95%;
   width: calc(96vw - 1.33px);
-  margin: 5px 0 0 2%;
+  margin: 5px 2% 0 2%;
   border-radius: 5px;
   padding: 5px;
 }
