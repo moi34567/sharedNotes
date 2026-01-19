@@ -83,6 +83,28 @@ textarea{
   height: 98%;
   width: calc(96vw - 1.33px);
   margin: 5px 0 0 2%;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+/* Keep the same visual appearance when the textarea is disabled (override browser default graying) */
+textarea:disabled,
+textarea[disabled]{
+  /* ensure full opacity */
+  opacity: 1;
+  /* match the enabled state colors */
+  background-color: black;
+  color: white;
+  /* WebKit-specific to ensure text color isn't forced */
+  -webkit-text-fill-color: white;
+  /* cursor and selection behavior */
+  cursor: default;
+  border: solid white 2px;
+}
+
+/* Optional: keep placeholder color readable */
+textarea::placeholder{
+  color: #888;
 }
 
 @media(max-width: 570px){
@@ -160,8 +182,19 @@ textarea{
     height: 30px;
     width: 30px;
   }
+  #app{
+    height: 100%;
+  }
   main{
     margin-top: 100px;
+    height: 100%;
+  }
+  textarea{
+    height: 97%;
+    margin: 5px 0 0 2%;
+  }
+  body{
+    height: 75%;
   }
 }
 @media(max-width: 239px){
