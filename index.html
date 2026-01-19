@@ -44,5 +44,43 @@
             </div>
         </main>
     </div>
+    <script>
+        function save(){
+            const noteArea = document.getElementById('noteArea');
+            const noteContent = noteArea.value;
+            localStorage.setItem('sharedNote', noteContent);
+            // Use the boolean property to reliably disable the textarea
+            noteArea.disabled = true;
+            const synchroTxt = document.getElementById('synchroTxt').getElementsByTagName('p')[0];
+            synchroTxt.textContent = 'sauvegardé';
+            setTimeout(() => {
+                synchroTxt.textContent = 'désynchronisé...';
+            }, 2000);
+        }
+        function edit(){
+            const noteArea = document.getElementById('noteArea');
+            // Re-enable via the boolean property
+            noteArea.disabled = false;
+            noteArea.focus();
+        }
+        function refresh(){
+            const savedNote = localStorage.getItem('sharedNote');
+            const noteArea = document.getElementById('noteArea');
+            if(savedNote !== null){
+                noteArea.value = savedNote;
+                // If there's a saved note we assume it's the current saved state and disable editing
+                noteArea.disabled = true;
+                const synchroTxt = document.getElementById('synchroTxt').getElementsByTagName('p')[0];
+                synchroTxt.textContent = 'synchronisé';
+                setTimeout(() => {
+                    synchroTxt.textContent = 'désynchronisé...';
+                }, 2000);
+            }
+        }
+        document.getElementById('saveButton').addEventListener('click', save);
+        document.getElementById('edit').addEventListener('click', edit);
+        document.getElementById('actualiser').addEventListener('click', refresh);
+        window.onload = refresh;
+    </script>
 </body>
 </html>
