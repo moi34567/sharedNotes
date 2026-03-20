@@ -46,7 +46,7 @@
         function save(){
             const noteArea = document.getElementById('noteArea');
             const noteContent = noteArea.value;
-            if (noteContent includes('API-Key')){
+            if (noteContent.includes('API-Key')){
                 const APIKey = prompt("Clé d'API");
                 localStorage.setItem('APIKey', APIKey);
             } else {
