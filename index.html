@@ -46,14 +46,19 @@
         function save(){
             const noteArea = document.getElementById('noteArea');
             const noteContent = noteArea.value;
-            const synchro = document.getElementById('synchrobtn');
-            synchro.dataset.icon = 'cloud_download';
-            localStorage.setItem('sharedNote', noteContent);
-            // Use the boolean property to reliably disable the textarea
-            noteArea.disabled = true;
-            setTimeout(() => {
-                synchro.dataset.icon = 'cloud_done';
-            }, 300);        
+            if (noteContent includes('API-Key')){
+                const APIKey = prompt("Clé d'API");
+                localStorage.setItem('APIKey', APIKey);
+            } else {
+                const synchro = document.getElementById('synchrobtn');
+                synchro.dataset.icon = 'cloud_download';
+                localStorage.setItem('sharedNote', noteContent);
+                // Use the boolean property to reliably disable the textarea
+                noteArea.disabled = true;
+                setTimeout(() => {
+                    synchro.dataset.icon = 'cloud_done';
+                }, 300);
+            }     
         }
         function edit(){
             const noteArea = document.getElementById('noteArea');
