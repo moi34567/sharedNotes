@@ -218,8 +218,21 @@ textarea::placeholder{
             </div>
         </main>
     </div>
+    <script type="module"> 
+        // Import the functions you need from the SDKs you need 
+        import { initializeApp } 
+        import { getFirestore, doc, setDoc, getDoc }
+        from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js"; 
+        // TODO: Add SDKs for Firebase products that you want to use 
+        // https://firebase.google.com/docs/web/setup#available-libraries 
+        // Your web app's Firebase configuration 
+        const firebaseConfig = localStorage.getItem('APIKey', APIKey);
+        // Initialize Firebase 
+        const app = initializeApp(firebaseConfig); 
+        const db = getFirestore(app);
+    </script>
     <script>
-        function save(){
+        async function save(){
             const noteArea = document.getElementById('noteArea');
             const noteContent = noteArea.value;
             if (noteContent.includes('API-Key')){
@@ -228,7 +241,9 @@ textarea::placeholder{
             } else {
                 const synchro = document.getElementById('synchrobtn');
                 synchro.dataset.icon = 'cloud_download';
-                localStorage.setItem('sharedNote', noteContent);
+                await setDoc(doc(db, "notes", "shared"), {
+                    content: noteContent
+                });
                 // Use the boolean property to reliably disable the textarea
                 noteArea.disabled = true;
                 setTimeout(() => {
@@ -244,14 +259,14 @@ textarea::placeholder{
             const synchro = document.getElementById('synchrobtn');
             synchro.dataset.icon = 'cloud_off';
         }
-        function refresh(){
+        async function refresh(){
             const synchro = document.getElementById('synchrobtn');
             synchro.dataset.icon = 'cloud_download';
-            const savedNote = localStorage.getItem('sharedNote');
+            const docRef = doc(db, "notes", "shared");
+            const docSnap = await getDoc(docRef);
             const noteArea = document.getElementById('noteArea');
-            if(savedNote !== null){
-                noteArea.value = savedNote;
-                // If there's a saved note we assume it's the current saved state and disable editing
+            if (docSnap.exists()) {
+                noteArea.value = docSnap.data().content;
                 noteArea.disabled = true;
                 synchro.dataset.icon = 'cloud_download';
                 setTimeout(() => {
