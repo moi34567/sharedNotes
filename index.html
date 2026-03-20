@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shared Notes</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div id="upbar">
+                <div id="title">
+                    <h1>
+                        shared notes
+                    </h1>
+                </div>
+                <div id="butons">
+                    <div id="save">
+                        <span class="material-icons" data-icon="save" id="savebtn"></span>
+                    </div>
+                    <div id="edit">
+                        <span class="material-icons" data-icon="edit" id="editbtn"></span>
+                    </div>
+                    <div id="synchro">
+                        <span class="material-icons" data-icon="cloud_done" id="synchrobtn"></span>
+                        <!--<span class="material-icons" data-icon="cloud_off"></span>
+                        <span class="material-icons" data-icon="cloud_download"></span>-->
+                    </div>
+                    <div id="actualiser">
+                        <span class="material-icons" data-icon="refresh" id="actualiserbtn"></span>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+        <main>
+            <div id="textDiv">
+                <textarea id="noteArea" placeholder="Écris ici..."></textarea>
+            </div>
+        </main>
+    </div>
+    <script>
+        function save(){
+            const noteArea = document.getElementById('noteArea');
+            const noteContent = noteArea.value;
+            const synchro = document.getElementById('synchrobtn');
+            synchro.dataset.icon = 'cloud_download';
+            localStorage.setItem('sharedNote', noteContent);
+            // Use the boolean property to reliably disable the textarea
+            noteArea.disabled = true;
+            setTimeout(() => {
+                synchro.dataset.icon = 'cloud_done';
+            }, 300);        
+        }
+        function edit(){
+            const noteArea = document.getElementById('noteArea');
+            // Re-enable via the boolean property
+            noteArea.disabled = false;
+            noteArea.focus();
+            const synchro = document.getElementById('synchrobtn');
+            synchro.dataset.icon = 'cloud_off';
+        }
+        function refresh(){
+            const synchro = document.getElementById('synchrobtn');
+            synchro.dataset.icon = 'cloud_download';
+            const savedNote = localStorage.getItem('sharedNote');
+            const noteArea = document.getElementById('noteArea');
+            if(savedNote !== null){
+                noteArea.value = savedNote;
+                // If there's a saved note we assume it's the current saved state and disable editing
+                noteArea.disabled = true;
+                synchro.dataset.icon = 'cloud_download';
+                setTimeout(() => {
+                    synchro.dataset.icon = 'cloud_done';
+                }, 300);
+            }
+        }
+        document.getElementById('savebtn').addEventListener('click', save);
+        document.getElementById('editbtn').addEventListener('click', edit);
+        document.getElementById('actualiserbtn').addEventListener('click', refresh);
+        window.onload = refresh;
+    </script>
+</body>
+</html>

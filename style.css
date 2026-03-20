@@ -1,0 +1,174 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  
+}
+body {
+  background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#app {
+  
+}
+#upbar {
+  background-color: darkgray;
+  display: flex;
+  position: fixed;
+  top: 0;
+  height: 75px;
+  width: 100%;
+}
+.material-icons {
+  font-size: 40px;
+  margin-top: 10px;
+  height: 55px;
+  width: 55px;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+.material-icons::before{
+  content:attr(data-icon);
+}
+#actualiserbtn{
+  position: fixed;
+  right: 10px;
+}
+#butons{
+  display: flex;
+}
+#title {
+  margin: auto 20px;
+}
+
+main{
+  margin-top: 75px;
+  height: calc(100vh - 75px);
+  padding: 5px 10px;
+}
+#textDiv{
+  height: 100%;
+  position: fixed;
+  top: 80px;
+  right: 5px;
+  left: 5px;
+}
+textarea{
+  resize: none;
+  height: calc(100% - 85px);
+  width: 100%;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+/* Keep the same visual appearance when the textarea is disabled (override browser default graying) */
+textarea:disabled,
+textarea[disabled]{
+  /* ensure full opacity */
+  opacity: 1;
+  /* match the enabled state colors */
+  background-color: black;
+  color: white;
+  /* WebKit-specific to ensure text color isn't forced */
+  -webkit-text-fill-color: white;
+  /* cursor and selection behavior */
+  cursor: default;
+  border: solid white 2px;
+}
+
+/* Optional: keep placeholder color readable */
+textarea::placeholder{
+  color: #888;
+}
+
+@media(max-width: 570px){
+  #title{
+    width: 110px
+  }
+}
+@media(max-width: 480px){
+  .material-icons{
+    margin: 10px 0 0 10px;
+  }
+}
+@media(max-width: 420px){
+  .material-icons{
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+}
+@media (max-width: 370px){
+  #title{
+    width: 70px;
+    font-size: 12px
+  }
+}
+@media(max-width: 330px){
+  .material-icons{
+    margin-top: 20px;
+    height: 30px;
+    width: 30px;
+  }
+}
+@media(max-width: 305px){
+   #upbar{
+    height: 100px;
+    display: block;
+  }
+  html{
+    height: 100%;
+  }
+  body{
+    height: 100%;
+  }
+  #title{
+    width: 150px;
+    margin: 10px auto 0;
+  }
+  #butons{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  #actualiserbtn{
+    position: static;
+    margin-top: 10px;
+  }
+  .material-icons{
+    margin: 10px 0 0 15px;
+  }
+  #app{
+    height: 100%;
+  }
+  main{
+    margin-top: 100px;
+    height: 100%;
+  }
+  #textDiv{
+    position: static;
+    margin-top: 10px;
+    height: 100%
+  }
+  textarea{
+    height: 100%;
+  }
+  main{
+    height: 100%;
+  }
+  body{
+    height: 75%;
+  }
+}
+@media(max-width: 239px){
+  *{
+    display: none;
+  }
+}
